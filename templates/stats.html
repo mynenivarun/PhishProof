@@ -1,0 +1,93 @@
+<!-- templates/stats.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats & Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-tight {
+            margin-left: 780px; 
+        }
+
+        .custom-table-width {
+            max-width: 650px; 
+            margin: 0 auto; 
+        }
+        
+        .url-short {
+            display: inline-block;
+            max-width: 150px; /* Adjust as needed */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+
+    </style> 
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='icon.png') }}" alt="Logo" style="max-width: 100px; height: 50px;" class="my-3">
+            </a>
+            <a href="{{ url_for('index') }}" class="my-0 mr-md-auto font-weight-normal">
+                <h5>PhishProof</h5>
+            </a>
+            <a href="{{ url_for('api_instructions') }}" class="btn btn-info btn-tight">API</a>
+            <a href="{{ url_for('index') }}" class="btn btn-info ml-auto">Home</a>
+        </div>
+    </div>
+    <div align="center" class="text-container">
+        <h1>Statistics</h1>
+        <p>Total URLs Checked: {{ total_checked }}</p>
+        <p>Number of URLs Marked Unsafe: {{ total_unsafe }}</p>
+        <p>Number of URLs Marked Safe: {{ total_safe }}</p>
+        <br>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>Top 50 Reported Phishing URLs</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>URL</th>
+                            <th>Report Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for url in top_phishing %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td><span class="url-short" data-url="{{ url.url }}" onclick="copyUrl(this)">{{ url.url | truncate(30) }}</span></td>
+                            <td> {{ url.count }} times</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyUrl(element) {
+            // Create a temporary text area to hold the full URL
+            var textArea = document.createElement("textarea");
+            textArea.value = element.getAttribute('data-url'); // Get the full URL from the data attribute
+            document.body.appendChild(textArea);
+            textArea.select(); // Select the text
+            document.execCommand('copy'); // Copy the text
+            document.body.removeChild(textArea); // Remove the temporary text area
+        
+            // Optionally, show an alert or tooltip that the URL was copied
+            alert('URL copied to clipboard!');
+        }
+    </script>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

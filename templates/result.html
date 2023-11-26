@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Check Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-uight {
+            margin-left: 690px; 
+        }
+        .btn-tight {
+            margin-left: 15px; 
+        }
+    </style> 
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='icon.png') }}" alt="Logo" style="max-width: 100px; height: 50px;" class="my-3">
+            </a>
+            <a href="{{ url_for('index') }}" class="my-0 mr-md-auto font-weight-normal">
+                <h5>PhishProof</h5>
+            </a>
+            <a href="{{ url_for('stats') }}" class="btn btn-info btn-uight">Stats</a>
+            <a href="{{ url_for('api_instructions') }}" class="btn btn-info btn-tight">API</a>
+            <a href="{{ url_for('index') }}" class="btn btn-info ml-auto">Home</a>
+        </div>
+    </div>
+    <div class="text-center">
+        <h1>URL Check Result</h1>
+        <p>The URL you checked is: <strong>{{ url }}</strong></p>
+        {% if is_phishing is none %}
+            <div class="alert alert-info" role="alert">
+                This URL is not in our database.
+                {% if show_analyze_button %}
+                    <form action="{{ url_for('unknown') }}" method="post">
+                        <input type="hidden" name="url" value="{{ url }}">
+                        <button type="submit" class="btn btn-warning">Analyze URL</button>
+                    </form>
+                {% endif %}
+            </div>
+        {% elif is_phishing %}
+            <div class="alert alert-danger" role="alert">
+                This URL is a phishing link.
+            </div>
+        {% else %}
+            <div class="alert alert-success" role="alert">
+                This URL is safe.
+            </div>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Go Back</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

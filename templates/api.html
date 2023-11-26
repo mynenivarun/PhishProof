@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Instructions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .command-box {
+            align-content: center;
+            background-color: #000;
+            padding: 16px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            width: 1080px;
+        }
+        .command-box code {
+            color: #ff0000; /* Bright red color */
+        }
+        .copy-button {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            cursor: pointer;
+        }
+        .btn-tight {
+            margin-left: 775px; /* Adjust the gap as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='icon.png') }}" alt="Logo" style="max-width: 100px; height: 50px;" class="my-3">
+            </a>
+            <a href="{{ url_for('index') }}" class="my-0 mr-md-auto font-weight-normal">
+                <h5>PhishProof</h5>
+            </a>
+            <a href="{{ url_for('stats') }}" class="btn btn-info btn-tight">Stats</a>
+            <a href="{{ url_for('index') }}" class="btn btn-info ml-auto">Home</a>
+        </div>
+    </div>
+    <div class="text-center">
+        <h1 class="mt-5">API Instructions</h1>
+        <p>Use our API to check and report URLs programmatically. To run the commands, copy them to your clipboard and paste into your terminal.</p>
+
+        <h2>Check a URL</h2>
+        <div class="command-box">
+            <code>curl -X POST -H "Content-Type: application/json" -d "{\"url\": \"www.google.com\"}" http://localhost:5000/api/check</code>
+            <button class="copy-button btn btn-secondary btn-sm" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        <p>OR</p>
+        <div class="command-box">
+            <code>curl -X POST -H "Content-Type: application/json" -d "{"url": "www.google.com"}" http://localhost:5000/api/check</code>
+            <button class="copy-button btn btn-secondary btn-sm" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        <br>
+        <br>
+        <h2>Report a URL</h2>
+        <div class="command-box">
+            <code>curl -X POST -H "Content-Type: application/json" -d "{\"url\": \"http://phishing.com\", \"report_type\": \"[Safe or Unsafe]\"}" http://localhost:5000/api/report</code>
+            <button class="copy-button btn btn-secondary btn-sm" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+        <p>OR</p>
+        <div class="command-box">
+            <code>curl -X POST -H "Content-Type: application/json" -d "{"url": "http://phishing.com", "report_type": "[Safe or Unsafe]"}" http://localhost:5000/api/report</code>
+            <button class="copy-button btn btn-secondary btn-sm" onclick="copyToClipboard(this)">Copy</button>
+        </div>
+
+    </div>
+
+    <script>
+        function copyToClipboard(element) {
+            var tempElem = document.createElement('textarea');
+            tempElem.style.position = 'absolute';
+            tempElem.style.left = '-9999px';
+            tempElem.value = element.previousElementSibling.innerText;
+            document.body.appendChild(tempElem);
+
+            tempElem.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempElem);
+
+            element.textContent = 'Copied!';
+            setTimeout(() => {
+                element.textContent = 'Copy';
+            }, 2000);
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

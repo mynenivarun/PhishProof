@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishProof</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-tight {
+            margin-left: 790px; 
+        }
+    </style>    
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='icon.png') }}" alt="Logo" style="max-width: 100px; height: 50px;" class="my-3">
+            </a>
+            <a href="{{ url_for('index') }}" class="my-0 mr-md-auto font-weight-normal">
+                <h5>PhishProof</h5>
+            </a>
+            <a href="{{ url_for('stats') }}" class="btn btn-info btn-tight">Stats</a>
+            <a href="{{ url_for('api_instructions') }}" class="btn btn-info ml-auto">API</a>
+        </div>
+    </div>    
+
+        <div class="text-center">
+            <h1>Check URL for Phishing</h1>
+            <form method="post" action="/check_url" class="form-inline d-flex justify-content-center">
+                <input type="text" class="form-control" id="url" name="url" placeholder="Enter URL to check" required>
+                <button type="submit" class="btn btn-primary">Check URL</button>
+            </form>
+            <br>
+            <br>
+            <h1>Report URL for Phishing</h1>
+            <form method="post" action="/report_url" class="form-inline d-flex justify-content-center mt-2">
+                <input type="text" class="form-control" id="report_url" name="url" placeholder="Enter URL to report" required>
+                <select class="form-control ml-2" name="report_type">
+                    <option value="unsafe">unsafe</option>
+                    <option value="safe">safe</option>
+                </select>
+                <button type="submit" class="btn btn-danger">Report URL</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
