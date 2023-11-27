@@ -26,7 +26,11 @@ cd phishing-link-detector
 Install the required Python libraries using pip:
 
 ```
-pip install Flask pymysql BeautifulSoup4 requests
+pip install requests
+pip install urllib3
+pip install pymysql
+pip install Flask
+pip install BeautifulSoup4
 ```
 
 This command installs Flask for web application development, pymysql for MySQL database interaction, BeautifulSoup4 for HTML parsing, and requests for making HTTP requests.
