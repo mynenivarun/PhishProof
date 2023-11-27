@@ -116,6 +116,12 @@ You can use tools like `curl` or Postman to interact with the API. Here's an exa
 curl -X POST -H "Content-Type: application/json" -d '{"url": "http://example.com"}' http://localhost:5000/api/check_url
 ```
 
+## UI Samples (or) ScreenShots
+### Basic (Home, API, Stats)
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Basic_Home.png "Home Page")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Basic_Api.png "API Page")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Basic_Stats.png "Stats Page")
+
 ## Contributions
 
 Contributions to the Phishing Link Detector are welcome. Please fork the repository, make your changes, and submit a pull request.
