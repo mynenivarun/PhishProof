@@ -117,10 +117,40 @@ curl -X POST -H "Content-Type: application/json" -d '{"url": "http://example.com
 ```
 
 ## UI Samples (or) ScreenShots
+
 ### Basic (Home, API, Stats)
 ![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Basic_Home.png "Home Page")
 ![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Basic_Api.png "API Page")
 ![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Basic_Stats.png "Stats Page")
+
+### API Usage
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/API_Usage.png "API Usage")
+
+### Reporting Urls Safe/Unsafe
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Safe_Report.png "Report Safe")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Safe_Results.png "Results Safe")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Unsafe_Report.png "Report Unsafe")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Unsafe_Results.png "Results Unsafe")
+
+### Stats Before & After Reporting Urls
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Screenshot%202023-11-24%20051644.png "Before")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Stats_After.png "After")
+
+### Checking Both Safe/Unsafe if URLs are in the Database
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Check_Url1.png "Checking Unsafe")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Check_Url1E.png "Result Unsafe")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Check_Url2.png "Checking Safe")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Check_Url2S.png "Result Safe")
+
+### Checking and Analyzing Both Safe/Unsafe if URLs are not there in the Database
+#### 1
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/1Check_Unkwn_Url.png "Checking Unknown")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/1Check_Unkwn_Url_Result.png "Results Unknown")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/1Check_Unkwn_Url_Rslt_Ana.png "Analysis Unknown")
+#### 2
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Check_Unkwn_Url.png "Checking Unknown")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Check_Unkwn_Url_Result.png "Results Unknown")
+![alt text](https://github.com/mynenivarun/PhishProof/blob/main/ScreenShots/Check_Unkwn_Url_Rslt_Ana.png "Analysis Unknown")
 
 ## Contributions
 
