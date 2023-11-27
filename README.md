@@ -112,8 +112,22 @@ The Phishing Link Detector includes an API that allows users to check URLs progr
 
 You can use tools like `curl` or Postman to interact with the API. Here's an example using `curl`:
 
+For Checking Urls
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"url": "http://example.com"}' http://localhost:5000/api/check_url
+curl -X POST -H "Content-Type: application/json" -d "{\"url\": \"www.google.com\"}" http://localhost:5000/api/check
+```
+or
+```
+curl -X POST -H "Content-Type: application/json" -d "{"url": "www.google.com"}" http://localhost:5000/api/check
+```
+
+For Reporting Urls 
+```
+curl -X POST -H "Content-Type: application/json" -d "{\"url\": \"http://phishing.com\", \"report_type\": \"[Safe or Unsafe]\"}" http://localhost:5000/api/report
+```
+or
+```
+curl -X POST -H "Content-Type: application/json" -d "{"url": "http://phishing.com", "report_type": "[Safe or Unsafe]"}" http://localhost:5000/api/report
 ```
 
 ## UI Samples (or) ScreenShots
